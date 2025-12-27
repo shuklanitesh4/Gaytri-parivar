@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maharishi Garg Gaytri Parivar - Gayatri Mata</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c1a10;
+            background: linear-gradient(135deg, #fff9f0 0%, #fdf7ec 100%);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #ff8c42 0%, #ffb347 100%);
+            color: #2c1a10;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c1a10;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255,255,255,0.8);
+            transform: translateY(-2px);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 6px;
+        }
+
+        .lang-btn {
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.8);
+            color: #2c1a10;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: #2c1a10;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Main content */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 15px 40px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .hero img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            object-fit: cover;
+            height: 400px;
+        }
+
+        .hero-text h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #c7411f;
+        }
+
+        .hero-text p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Sections */
+        .section {
+            background: #fff9f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-left: 5px solid #ff8c42;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #c7411f;
+        }
+
+        .section p {
+            margin-bottom: 12px;
+        }
+
+        /* Cards Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #ffb347;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: #c7411f;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .card ul {
+            margin-left: 18px;
+        }
+
+        .card li {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Media embeds */
+        .media-section {
+            margin-top: 20px;
+        }
+
+        .media-embed {
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .media-embed iframe {
+            width: 100%;
+            min-height: 280px;
+            border: none;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ffb347;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-info strong {
+            color: #c7411f;
+        }
+
+        /* Form styles */
+        form {
+            display: grid;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        input, textarea, select {
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #d9c6a5;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #ff8c42;
+            box-shadow: 0 0 8px rgba(255,140,66,0.3);
+            background: #fffbf5;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button[type="submit"] {
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            background: linear-gradient(135deg, #ff8c42, #ffb347);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255,140,66,0.3);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* Language blocks */
+        [data-lang-block] {
+            display: none;
+        }
+
+        [data-lang-block].active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background: linear-gradient(135deg, #ff8c42, #ffb347);
+            color: #2c1a10;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero img {
+                height: 300px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .lang-switch {
+                order: -1;
+            }
+
+            .section {
+                padding: 18px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: none;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="logo">🙏 महार्षि गर्ग गायत्री परिवार</div>
+            <nav class="nav-links">
+                <a onclick="showPage('home')" class="active">HOME</a>
+                <a onclick="showPage('about')">ABOUT</a>
+                <a onclick="showPage('puja')">PUJA VIDHI</a>
+                <a onclick="showPage('media')">CHALISA & AARTI</a>
+                <a onclick="showPage('contact')">CONTACT</a>
+            </nav>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="hi" onclick="setLanguage('hi')">हि</button>
+                <button class="lang-btn" data-lang="sa" onclick="setLanguage('sa')">सं</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-text">
+                    <div data-lang-block="en" class="active">
+                        <h1>Maharishi Garg Gaytri Parivar</h1>
+                        <p>Welcome to the sacred platform dedicated to Gayatri Mata, the Mother of the Vedas. Here you will find knowledge, spiritual practices, and divine wisdom to guide your inner journey.</p>
+                        <p>Gayatri Devi is revered as the embodiment of knowledge, purity, and enlightenment in Hindu spirituality.</p>
+                    </div>
+                    <div data-lang-block="hi">
+                        <h1>महार्षि गर्ग गायत्री परिवार</h1>
+                        <p>गायत्री माता, वेदों की माता के प्रति समर्पित इस पावन मंच में आपका स्वागत है। यहाँ आप ज्ञान, साधना और दिव्य ज्ञान पाएंगे जो आपकी आध्यात्मिक यात्रा को मार्गदर्शन देंगे।</p>
+                        <p>गायत्री माता को हिंदू अध्यात्मवाद में ज्ञान, शुद्धता और आत्मज्ञान की देवी के रूप में पूजा जाता है।</p>
+                    </div>
+                    <div data-lang-block="sa">
+                        <h1>महर्षि गर्ग गायत्री परिवार</h1>
+                        <p>गायत्री माता, वेदमाता के प्रति समर्पितस्य पवित्रस्य मंचस्य आपका स्वागतम्। अत्र ज्ञानं, साधनं च दिव्यज्ञानं लब्धयोः।</p>
+                        <p>गायत्री देवी ज्ञान, शुद्धता एवं आत्मज्ञानस्य प्रतीकः मन्यते।</p>
+                    </div>
+                </div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Cdefs%3E%3ClinearGradient id='grad1'%3E%3Cstop offset='0%25' style='stop-color:rgb(255,140,66);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(255,179,71);stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='500' fill='url(%23grad1)'/%3E%3Ccircle cx='200' cy='120' r='80' fill='%23fff9f0'/%3E%3Ctext x='200' y='140' font-size='80' font-weight='bold' text-anchor='middle' fill='%23c7411f'%3E🙏%3C/text%3E%3C/svg%3E" alt="Gayatri Mata">
+            </section>
+
+            <section class="section">
+                <h2 data-lang-block="en" class="active">Quick Introduction</h2>
+                <h2 data-lang-block="hi">संक्षिप्त परिचय</h2>
+                <h2 data-lang-block="sa">संक्षिप्त परिचय</h2>
+
+                <div data-lang-block="en" class="active">
+                    <p>Gayatri is the personification of the Gayatri mantra, one of the most sacred chants in Hinduism. She is known as the Mother of the Vedas and the embodiment of cosmic energy.</p>
+                </div>
+                <div data-lang-block="hi">
+                    <p>गायत्री देवी गायत्री मंत्र की अधिष्ठात्री शक्ति हैं। वे हिंदू धर्म में सबसे पवित्र मंत्र से जुड़ी हैं और वेदमाता के रूप में पूजी जाती हैं।</p>
+                </div>
+                <div data-lang-block="sa">
+                    <p>गायत्री देवी गायत्री मंत्रस्य अधिष्ठात्री शक्तिः। सा वेदमाता नाम्ना प्रसिद्धा अस्ति।</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page">
+            <section class="section">
+                <h2 data-lang-block="en" class="active">Origin of Gayatri Mata</h2>
+                <h2 data-lang-block="hi">गायत्री माता का उद्गम</h2>
+                <h2 data-lang-block="sa">गायत्री माता का उद्गम</h2>
+
+                <div data-lang-block="en" class="active">
+                    <p>Gayatri is the goddess of the famous Gayatri mantra from the Rigveda. She is associated with Savitr, the solar deity, and is revered as the Mother of all Vedas. In Hindu philosophy, she represents the divine power that illuminates all knowledge.</p>
+                    <p>The Gayatri mantra, "Om bhur bhuvah svah, tat savitur varenyam...", is considered one of the most powerful mantras in Hinduism, and Gayatri Devi is its presiding deity.</p>
+                </div>
+                <div data-lang-block="hi">
+                    <p>गायत्री ऋग्वेद के प्रसिद्ध गायत्री मंत्र की देवी हैं। वे स
